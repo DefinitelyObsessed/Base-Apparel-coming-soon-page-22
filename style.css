@@ -1,0 +1,330 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+
+/* Roots */
+:root {
+      --clr-font-body: hsl(0, 36%, 70%) ;
+      --clr-error: hsl(0, 93%, 68%) ;
+      --clr-span: hsl(0, 6%, 24%) ;
+      --clr-placeholder: hsla(0, 36%, 70%, 0.633);
+
+
+      --body-gradient: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+      --button-gradient: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+      --button-hover-gradient: linear-gradient(135deg, hsl(0, 66%, 92%), hsl(0, 52%, 82%));
+
+      --fs-p:0.85rem ;
+      --fs-h1:2rem;
+
+      --fw-300:300 ;
+      --fw-400:400 ;
+      --fw-600:600 ; 
+
+      --ff-body: 'Josefin Sans', sans-serif;
+}
+
+
+/* Similar Parts */
+*, body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+}
+
+body {
+      background: var(--body-gradient);
+      color: var(--clr-font-body);
+      font-family: var(--ff-body);
+}
+
+main {
+      display: grid;
+      grid-template-rows: auto 35vh 1fr;
+      height: 100vh;
+      max-width: 100vw;
+}
+
+body, input {
+      background: var(--body-gradient);
+      background-repeat: no-repeat;
+}
+
+body, input::placeholder {
+      font-size: var(--fs-p);
+      font-weight: var(--fw-400);
+}
+
+main , .sub-article , form{
+      display: grid;
+}
+
+.sub-header , .sub-article {
+      margin: 4vh auto ;
+      width: max(30vw,300px); 
+}
+
+/* Header */
+header img {
+      width: max(110px, 12vw);
+}
+
+
+/* Picture */
+picture img {
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      width: 100%;
+}
+
+
+/* Article */
+.sub-article {
+      gap: 3vh;
+      text-align: center;
+}
+
+article h1{
+      font-size: var(--fs-h1);
+      font-weight: var(--fw-300);
+      letter-spacing: 10px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      white-space: pre-line;
+}
+
+article h1 span {
+      color: var(--clr-span);
+      font-weight: var(--fw-600);
+}
+
+article p {
+      line-height: 1.4;
+}
+
+form {
+      gap: 1vh;
+}
+
+button, input {
+      border-radius: 50px;
+}
+
+input {
+      border-style: solid;
+      border-color: var(--clr-placeholder);
+      font-size: var(--fs-p);
+      padding:2vh max(100px, 9vw) 2vh max(13px,1vw)  ;
+}
+
+input::placeholder {
+      color: var(--clr-placeholder);
+}
+
+button, small{
+      transition: 300ms ease;
+}
+
+button {
+      background: var(--button-gradient);
+      border-style: none;
+      /* bottom: 8.7vh; */
+      bottom: 8.2vh;
+      cursor: pointer;
+      /* left: 74vw; */
+      left: 250px;
+      padding: 1.7vh 0;
+      position: relative;
+      transition-property: transform , background;
+      width: max(60px, 6vw); 
+}
+
+button:hover {
+      background: var(--button-hover-gradient);
+      transform: scale(1.1);
+}
+
+button img {
+      height: inherit;
+      width: max(13px,1vw);
+}
+
+small {
+      position: absolute;
+      bottom: 6vh;
+      visibility: hidden;
+      transition-property: visibility;
+}
+
+
+/* Invalid Email Id */
+form.error input {
+      border-color: var(--clr-error);
+}
+form.error button::before {
+      content: url(images/icon-error.svg);
+      position: absolute;
+      right: 80px;
+      width: max(1rem, 1vw);
+}
+
+form.error small {
+      color: var(--clr-error);
+      text-align: left;
+      padding-left: 3vw;
+      visibility: visible;
+}
+
+/* Responsive section */
+@media (max-width:374px){
+      .sub-header , .sub-article {
+            max-width: 90vw; 
+      }
+      button {
+            left: 77vw;
+      }
+}
+/* @media (min-width:500px) {
+      button {
+            left: 68vw;
+      }
+      
+} */
+
+/* @media (min-width:700px) {
+      button {
+            left: 62.5vw;
+      }
+      
+} */
+
+@media (min-width:900px) {
+      body{
+            background-image: url(images/bg-pattern-desktop.svg);
+            background-size:  55% 100%;
+      }
+      main {
+            grid-template-columns: 55vw 45vw;
+            grid-template-rows: auto 1fr;
+            overflow-y: hidden;
+      }
+      picture {
+            grid-column: 2 / span 3;
+            grid-row: 1 / span 3;
+      }
+      .sub-header , .sub-article {
+            margin: 10vh auto 0 auto;
+      }
+      
+      .sub-article {
+            gap: 4vh;
+            text-align: left;
+      }
+      article p{
+            line-height: 1.7;
+      }
+      button {
+            left: 31vw;
+            /* left: 41.5vw; */
+            /* bottom: 19vh; */
+      }
+      small {
+            /* position: absolute; */
+            bottom: 15vh;
+            /* visibility: hidden;
+            transition-property: visibility; */
+      }
+      :root {
+            --fs-h1:4rem;
+      }    
+}
+
+@media (min-width:1100px) {
+      button {
+            left: 25vw;
+            /* bottom: 18.5vh; */
+      }
+      form.error button::before {
+            right: 7vw;
+      }
+}
+
+@media (min-width:1440px) {
+      .sub-header , .sub-article {
+            margin: 8vh auto ;
+      }
+      button {
+            left: 24vw;
+            /* bottom: 19vh; */
+            /* width: max(60px, 6vw);  */
+      }
+      /* input {
+            padding:2vh  9vw 2vh 1vw  ;
+      } */
+      /* form.error button::before {
+            right: 105px;
+      } */
+      
+      :root {
+            --fs-p:1rem;
+      } 
+}
+
+@media (min-width:1600px) {
+      /* button {
+            left: 36vw;
+            bottom: 18.5vh;
+      }
+      form.error button::before {
+            right: 7vw;
+      } */
+      
+      :root {
+            --fs-h1:4.5rem;
+            --fs-p:1.1rem;
+      }       
+}
+
+@media (min-width:1800px) {
+      button {
+            bottom: 8vh;
+      }
+      small {
+            /* position: absolute; */
+            bottom: 18vh;
+            /* visibility: hidden;
+            transition-property: visibility; */
+      }
+      :root {
+            /* --fs-h1:4.65rem; */
+            --fs-p:1.25rem;
+      }       
+}
+
+@media (min-width:2000px) {
+      /* button {
+            bottom: 22vh;
+      } */
+      :root {
+            --fs-h1:4.9rem;
+            --fs-p:1.45rem;
+      } 
+}
+
+@media (min-width:2200px) {
+      :root {
+            --fs-h1:5.3rem;
+            --fs-p:1.65rem;
+      } 
+}
+
+@media (min-width:2400px) {
+      button {
+            bottom: 7.75vh;
+      }
+      :root {
+            --fs-h1:5.8rem;
+            --fs-p:1.92rem;
+      } 
+}
